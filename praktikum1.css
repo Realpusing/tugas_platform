@@ -1,0 +1,41 @@
+table {
+    width: 80%;
+    margin-top: 5px;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    
+}
+
+table th {
+    
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+img{
+ margin: 25px;
+    margin-left: 20s0px;
+    display: white;
+    max-width: 50%;
+
+}
+body{
+    background-image: url(https://tse4.mm.bing.net/th?id=OIP.EYDPP3RhS3d4DVw93sbJMwHaEd&pid=Api&P=0);
+    width: 100;
+
+}
+img{
+    width: 50;
+    right: 50;
+    background-image: url();
+}
+tr{
+    color: rgb(255, 255, 255); font-kerning:auto; size: 12;
+}
+p{
+    size: 15;
+}
