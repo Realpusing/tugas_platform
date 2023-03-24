@@ -1,22 +1,26 @@
 function cetakPilihan() {
   var pilihan = document.getElementById("numChoices").value;
   var pilihan1 = "";
-  for (var i = 1; i <= pilihan; i++) {
-    pilihan1 += "<p> Pilihan " + i + "<input type='text' placeholder='Masukkan Pilihan'> </p>";
+  for (var i = 0; i < pilihan; i++) {
+    pilihan1 += "<p> Pilihan ke-" + (1+i) + "<input type='text'> </p>";
   }
   var pil = "<p> <button onclick='radio()'>OK</button> </p>";
+  //memasukan data yang telah diisi pada pilihan1, sekaligus memunculkan button
   document.getElementById("cetak").innerHTML = pilihan1;
   document.getElementById("button").innerHTML = pil;
 }
 
 function radio() {
+  
   var form = document.getElementById("cetak");
   var inputs = form.getElementsByTagName("input");
   var radio = "";
+  // membuat radio button
   for (var i = 0; i < inputs.length; i++) {
     radio += "<input type='radio' name='option' value='" + inputs[i].value + "'>" + inputs[i].value + "<br>";
   }
   var submit = "<input type='submit' value='Submit' onclick='pilihan(event)'>";
+  //menambahkan radio agar bisa dimunculkan didalam html
   document.getElementById("masukan").innerHTML = submit;
   document.getElementById("daftar").innerHTML = radio;
 }
@@ -31,9 +35,8 @@ function pilihan(event) {
   var checkboxes = [];
 
       for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == "checkbox" && inputs[i].checked) {
-          checkboxes.push(inputs[i].value);
-        }
+        checkboxes.push(inputs[i].value);
+        
       }
     
       var selectedOption = document.querySelector('input[name="option"]:checked');
@@ -41,7 +44,7 @@ function pilihan(event) {
       if (selectedOption) {
         result.textContent = "Halo, Nama Saya " + testName.value + ", saya mempunyai sejumlah " + banyakPil + " pilihan yaitu " + checkboxes.join(", ") + " dan saya memilih " + selectedOption.value + ".";
       } else {
-        result.textContent = "Please select an option.";
+        result.textContent = "Halo, Nama Saya " + testName.value + ", saya mempunyai sejumlah " + banyakPil + " pilihan yaitu " + checkboxes.join(", ") + " dan saya tidak memilih apapun." ;
       }
     }
     
