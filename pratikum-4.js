@@ -2,7 +2,7 @@ function cetakPilihan() {
   var pilihan = document.getElementById("numChoices").value;
   var pilihan1 = "";
   for (var i = 0; i < pilihan; i++) {
-    pilihan1 += "<p> Pilihan ke-" + (1+i) + "<input type='text'> </p>";
+    pilihan1 += "<p> Pilihan Hobi ke-" + (1+i) + "<input type='text'> </p>";
   }
   var pil = "<p> <button onclick='radio()'>OK</button> </p>";
   //memasukan data yang telah diisi pada pilihan1, sekaligus memunculkan button
@@ -18,8 +18,10 @@ function radio() {
   // membuat radio button
   for (var i = 0; i < inputs.length; i++) {
     radio += "<input type='radio' name='option' value='" + inputs[i].value + "'>" + inputs[i].value + "<br>";
+    
   }
   var submit = "<input type='submit' value='Submit' onclick='pilihan(event)'>";
+  
   //menambahkan radio agar bisa dimunculkan didalam html
   document.getElementById("masukan").innerHTML = submit;
   document.getElementById("daftar").innerHTML = radio;
@@ -28,6 +30,7 @@ function radio() {
 function pilihan(event) {
   event.preventDefault();
   var testName = document.getElementById("name");
+  var testEmail= document.getElementById("exampleInputEmail1")
   var result = document.getElementById("result");
   var banyakPil = document.getElementById("numChoices").value;
   var form1 = document.getElementById("cetak");
@@ -42,9 +45,9 @@ function pilihan(event) {
       var selectedOption = document.querySelector('input[name="option"]:checked');
     
       if (selectedOption) {
-        result.textContent = "Halo, Nama Saya " + testName.value + ", saya mempunyai sejumlah " + banyakPil + " pilihan yaitu " + checkboxes.join(", ") + " dan saya memilih " + selectedOption.value + ".";
+        result.textContent = "Halo, Nama Saya " + testName.value + " dengan email "+testEmail.value+", saya mempunyai sejumlah " + banyakPil + " pilihan hobi yaitu " + checkboxes.join(", ") + " dan saya menyukai " + selectedOption.value + ".";
       } else {
-        result.textContent = "Halo, Nama Saya " + testName.value + ", saya mempunyai sejumlah " + banyakPil + " pilihan yaitu " + checkboxes.join(", ") + " dan saya tidak memilih apapun." ;
+        result.textContent = "Halo, Nama Saya " + testName.value + " dengan email "+testEmail.value+", saya mempunyai sejumlah " + banyakPil + " pilihan hobi yaitu " + checkboxes.join(", ") + " dan saya tidak memilih apapun." ;
       }
     }
     
