@@ -1,0 +1,43 @@
+@extends('pengguna.index')
+@section('pengguna.title', 'pengguna.Home')
+
+@section('isihalaman')
+    <p>
+    <h3><center>Daftar Buku Perpustakaan Universitas Sanata Dharma</center></h3>
+
+    <p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td align="center">No</td>
+                <td align="center">ID Buku</td>
+                <td align="center">Kode Buku</td>
+                <td align="center">Judul Buku</td>
+                <td align="center">Pengarang</td>
+                <td align="center">Kategori</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach ($buku as $index => $bk)
+                <tr>
+                    <td align="center" scope="row">{{ $index + $buku->firstItem() }}</td>
+                    <td>{{$bk->id_buku}}</td>
+                    <td>{{$bk->kode_buku}}</td>
+                    <td>{{$bk->judul}}</td>
+                    <td>{{$bk->pengarang}}</td>
+                    <td>{{$bk->kategori}}</td>
+                </tr>
+            @endforeach
+            
+        </body>
+
+    </table>
+    Halaman : {{ $buku->currentPage() }} <br />
+    Jumlah Data : {{ $buku->total() }} <br />
+    Data Per Halaman : {{ $buku->perPage() }} <br />
+
+    {{ $buku->links() }}
+
+
+@endsection
