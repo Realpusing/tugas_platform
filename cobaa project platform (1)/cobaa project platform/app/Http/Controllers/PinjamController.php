@@ -5,18 +5,12 @@ namespace App\Http\Controllers;
 // use App\Models\BukuModel;
 // use App\Models\PetugasModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 //memanggil model PinjamModel
 use App\Models\PinjamModel;
 
-//memanggil model PetugasModel
-use App\Models\PetugasModel;
-
-//memanggil model AnggotaModel
-use App\Models\AnggotaModel;
-
 //memanggil model UserModel
-
 use App\Models\User;
 
 //memanggil model BukuModel
@@ -25,6 +19,19 @@ use App\Models\BukuModel;
 class PinjamController extends Controller
 {
     //method untuk tampil data peminjaman
+     //method untuk tampil data peminjaman
+     public function menutampil()
+     {
+         $datapinjam = PinjamModel::orderby('id_pinjam', 'ASC')
+         ->paginate(5);
+         $User=Auth::user();
+        //  $datauser = User::all();
+        //  $dataanggota    = User::all();
+         $databuku       = BukuModel::all();
+ 
+         return view('pengguna/view_pinjam',['pinjam'=>$datapinjam,'buku'=>$databuku,'User'=>$User]);
+     }
+     
     public function pinjamtampil()
     {
         $datapinjam = PinjamModel::orderby('id_pinjam', 'ASC')

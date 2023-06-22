@@ -37,7 +37,7 @@ Route::get('/admin', function () {return view('pengguna.admin');})->name('login'
     Route::get('/bukuuser', 'BukuController@menutampil');//jangan diubah untuk menampilkan tabel
     
     //Route untuk Data Buku
-    
+    Route::get('/pinjamuser', 'PinjamController@menutampil');//jangan diubah untuk menampilkan tabel
     Route::get('/homeutama', function(){return view('view_home');});
     Route::get('/home', function(){return view('pengguna.view_home');});//jangan diubah untuk menampilkan tabel
 
@@ -46,6 +46,8 @@ Route::get('/admin', function () {return view('pengguna.admin');})->name('login'
     Route::post('/pinjam/tambah','PinjamController@pinjamtambah');
     Route::get('/pinjam/hapus/{id_pinjam}','PinjamController@pinjamhapus');
     Route::put('/pinjam/edit/{id_pinjam}', 'PinjamController@pinjamedit');
+    Route::get('/pinjamuser', 'PinjamController@menutampil');
+    
     
     Route::get('/logout','LoginControl@logout')->name('logout');
     //Route untuk Data Donatur
