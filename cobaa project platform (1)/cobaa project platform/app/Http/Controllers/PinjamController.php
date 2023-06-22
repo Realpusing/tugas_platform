@@ -25,11 +25,11 @@ class PinjamController extends Controller
          $datapinjam = PinjamModel::orderby('id_pinjam', 'ASC')
          ->paginate(5);
          $User=Auth::user();
-        //  $datauser = User::all();
-        //  $dataanggota    = User::all();
+         $datauser = User::all();
+         $dataanggota    = User::all();
          $databuku       = BukuModel::all();
  
-         return view('pengguna/view_pinjam',['pinjam'=>$datapinjam,'buku'=>$databuku,'User'=>$User]);
+         return view('pengguna/view_pinjam',['pinjam'=>$datapinjam,'users'=>$datauser,'anggota'=>$dataanggota,'buku'=>$databuku,'User'=>$User]);
      }
      
     public function pinjamtampil()
